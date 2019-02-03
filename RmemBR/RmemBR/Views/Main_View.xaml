@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RmemBR.Core.Views.Main_View"
+			      xmlns:ViewModelBase="clr-namespace:RmemBR.Core.ViewModels.Base;assembly=RmemBR.Core"
+            xmlns:local="clr-namespace:RmemBR.Core.Views;assembly=RmemBR.Core"
+            xmlns:views="clr-namespace:RmemBR.Core.Views" 
+            ViewModelBase:ViewModelLocator.AutoWireViewModel="true">
+  
+  <!--Pages can be added as references or inline-->
+  <TabbedPage.Title>
+    <OnPlatform x:TypeArguments="x:String">
+      <On Platform="iOS, UWP, WinRT, WinPhone" Value="RmemBR" />
+    </OnPlatform>
+  </TabbedPage.Title>
+</TabbedPage>

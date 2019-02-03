@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RmemBR.Core.Views.History_View"
+             xmlns:ViewModelBase="clr-namespace:RmemBR.Core.ViewModels.Base;assembly=RmemBR.Core"
+             ViewModelBase:ViewModelLocator.AutoWireViewModel="true">
+  <ContentPage.Content>
+      <StackLayout>
+          <Label Text="Page that will display the latest changes // additions" />
+      <Label Text="{Binding toggle, Mode=TwoWay}"></Label>
+      <Button Text="Some Button" Command="{Binding ButtonClickedCommand}"> </Button>
+      </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

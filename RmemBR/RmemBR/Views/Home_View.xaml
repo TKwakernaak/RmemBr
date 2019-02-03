@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RmemBR.Core.Views.Home_View"
+             xmlns:ViewModelBase="clr-namespace:RmemBR.Core.ViewModels.Base;assembly=RmemBR.Core"
+             ViewModelBase:ViewModelLocator.AutoWireViewModel="true">
+  <ContentPage.Content>
+    <StackLayout>
+      <Label Text="what do you have to remember"></Label>
+      <Editor Text="set your text here" AutoSize="TextChanges"></Editor>
+      <Label Text="How do you want to be reminded?"></Label>
+      <Picker TextColor="Black"
+              Title="Select a date"
+              ItemsSource="{Binding Maincolors, Mode=TwoWay}">
+      </Picker>
+        <Label
+        Text="Select the date"
+        Font="Bold,20">
+        </Label>
+        <DatePicker MinimumDate="{Binding TodayDate}"
+                  MaximumDate="{Binding MaxDate}"                
+                  VerticalOptions="Center">
+        </DatePicker>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
