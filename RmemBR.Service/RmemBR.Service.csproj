@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RmemBr.DataAccess\RmemBr.DataAccess.csproj" />
+    <ProjectReference Include="..\RmemBR.Data\RmemBR.Data.csproj" />
+    <ProjectReference Include="..\RmemBr.Models\RmemBr.Models.csproj" />
+  </ItemGroup>
+
+</Project>

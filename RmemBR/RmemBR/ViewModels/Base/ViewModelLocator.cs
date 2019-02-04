@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Globalization;
 using RmemBR.Core.Service.Navigation;
 using RmemBR.Core.Service.Dialogs;
+using RmemBR.Service;
+using RmemBr.DataAccess;
 
 namespace RmemBR.Core.ViewModels.Base
 {
@@ -41,9 +43,13 @@ namespace RmemBR.Core.ViewModels.Base
       builder.RegisterType<Main_ViewModel>();
       builder.RegisterType<Home_ViewModel>();
       builder.RegisterType<History_ViewModel>();
+      builder.RegisterType<TasksOverview_ViewModel>(); 
 
       builder.RegisterType<NavigationService>().As<INavigationService>();
-      builder.RegisterType<DialogService>().As<IDialogService>(); 
+      builder.RegisterType<DialogService>().As<IDialogService>();
+      builder.RegisterType<MemoryService>().As<IMemoryService>();
+      builder.RegisterType<MemoriesDbClient>().As<IMemoriesDbClient>();
+
 
      _container = builder.Build(); 
     }

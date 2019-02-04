@@ -29,8 +29,12 @@
       <Color x:Key="AndroidDefaultAccentColorColor">#1FAECE</Color>
       <Color x:Key="AndroidListViewBackgroundColor">Transparent</Color>
       <Color x:Key="iOSListViewBackgroundColor">Transparent</Color>
-      
-      
+
+
+      <Style x:Key="BaseContentPage" TargetType="ContentPage">
+        <Setter Property="Padding" Value="5">
+      </Setter>
+      </Style>
     </ResourceDictionary>
 
   </Application.Resources>

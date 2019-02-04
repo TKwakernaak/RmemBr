@@ -3,24 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RmemBR.Core.Views.Home_View"
              xmlns:ViewModelBase="clr-namespace:RmemBR.Core.ViewModels.Base;assembly=RmemBR.Core"
-             ViewModelBase:ViewModelLocator.AutoWireViewModel="true">
+             xmlns:local="clr-namespace:RmemBR.Core.Behaviors"
+             ViewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             Style="{StaticResource BaseContentPage}"  >
   <ContentPage.Content>
     <StackLayout>
       <Label Text="what do you have to remember"></Label>
-      <Editor Text="set your text here" AutoSize="TextChanges"></Editor>
+      <Editor Text="set your text here" AutoSize="TextChanges" ></Editor>
       <Label Text="How do you want to be reminded?"></Label>
-      <Picker TextColor="Black"
-              Title="Select a date"
-              ItemsSource="{Binding Maincolors, Mode=TwoWay}">
-      </Picker>
-        <Label
-        Text="Select the date"
-        Font="Bold,20">
-        </Label>
-        <DatePicker MinimumDate="{Binding TodayDate}"
-                  MaximumDate="{Binding MaxDate}"                
-                  VerticalOptions="Center">
-        </DatePicker>
+      <Entry Placeholder="put your tags here" Text="{Binding Tag}">
+        <Entry.Behaviors>
+          <local:EventToCommandBehavior Command="{Binding TagAddedCommand}" EventName="Unfocused"></local:EventToCommandBehavior> 
+        </Entry.Behaviors>
+      </Entry>  
+      <Button Text="{Binding Tags}" />
+      <Button Text="Push" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Command="{Binding Add}"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

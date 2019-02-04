@@ -1,5 +1,6 @@
 ﻿using RmemBR.Core.ViewModels.Base;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,50 @@ namespace RmemBR.Core.ViewModels
 {
   public class Home_ViewModel : ViewModelBase
   {
-    public List<string> Maincolors = new List<string>();
+
+    private ConcurrentQueue<string> _tags;
+
+    private string _tag;
+
     public Home_ViewModel()
     {
-      Maincolors.Add("a");
-      Maincolors.Add("b");
+      _tags = new ConcurrentQueue<string>();
     }
 
-
-
-    public DateTime TodayDate => DateTime.Now;
-    public DateTime MaxDate => DateTime.Now.AddYears(1);
-
-    public ICommand SelectedDate => new Command<DateTime>(DoStuff);
-
-    private void DoStuff(DateTime selectedDateTime)
+    public string Tags
     {
+      get
+      {
+        string x = "";
+        _tags.TryPeek(out x);
+        return x;
+      }
+      set
+      {
+        _tags.Enqueue(value);
+      }
+    }
 
+    public string Tag
+    {
+      get
+      {
+        return _tag;
+      }
+      set
+      {
+        _tag = value;
+        OnPropertyChanged("Tag");
+       }
+    }
+
+    public ICommand TagAddedCommand => new Command(TagAdded);
+
+
+    public void TagAdded()
+    {
+      _tags.Enqueue(_tag);
+      RaisePropertyChanged(() => Tags);
     }
 
     public override async Task InitializeAsync(object navigationData)

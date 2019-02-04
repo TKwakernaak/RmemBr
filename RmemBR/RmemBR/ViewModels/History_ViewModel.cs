@@ -5,21 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using RmemBR.Service;
+using RmemBR.Data;
+using System.Linq;
 
 namespace RmemBR.Core.ViewModels
 {
   public class History_ViewModel : ViewModelBase
   {
 
-    private bool _toggle { get; set; }
-    public string toggle
+    private IMemoryService _memoryService;
+
+    public History_ViewModel(IMemoryService memoryService)
     {
-      get => _toggle.ToString();
-      set
-      {
-        _toggle = Convert.ToBoolean(value);
-      }
+      _memoryService = memoryService;
     }
+
+
+    public IList<Data.MemoryDO> Memories
+    {
+      get => GetAllMemories();
+    }
+
+
+
+
 
     public override async Task InitializeAsync(object navigationData)
     {
@@ -33,7 +43,14 @@ namespace RmemBR.Core.ViewModels
 
     private void OnButtonClicked()
     {
-      _toggle = !_toggle;
+      var items = _memoryService.GetMemories();
+
+      _memoryService.CreateMemory(new RmemBr.Models.Memory());
+    }
+
+    public IList<MemoryDO> GetAllMemories()
+    {
+      return _memoryService.GetMemories().ToList();
     }
   }
 }
