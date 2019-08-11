@@ -11,16 +11,27 @@
 
   <ItemGroup>
     <None Remove="Images\add_circle.png" />
+    <None Remove="Images\BooksTile.jpg" />
+    <None Remove="Images\MoviesTile.jpg" />
+    <None Remove="Images\MusicTile.jpeg" />
+    <None Remove="Images\PersonsTile.jpeg" />
+    <None Remove="Images\ProgrammingTile.jpg" />
+    <None Remove="Images\TechnologyTile.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\add_circle.png" />
+    <EmbeddedResource Include="Images\BooksTile.jpg" />
+    <EmbeddedResource Include="Images\MoviesTile.jpg" />
+    <EmbeddedResource Include="Images\MusicTile.jpeg" />
+    <EmbeddedResource Include="Images\PersonsTile.jpeg" />
+    <EmbeddedResource Include="Images\ProgrammingTile.jpg" />
+    <EmbeddedResource Include="Images\TechnologyTile.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +53,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\CustomNavigation_View.xaml">
+    <EmbeddedResource Update="Views\AddMemory_View.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CustomViews\CustomDatePicker.xaml">
+    <EmbeddedResource Update="Views\CustomNavigation_View.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Home_View.xaml">
@@ -57,16 +68,21 @@
     <EmbeddedResource Update="Views\History_View.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\MemoriesOverview_View.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\TasksOverview_View.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\CustomViews\" />
     <Folder Include="Views\Templates\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\RmemBr.Common\RmemBr.Common.csproj" />
     <ProjectReference Include="..\..\RmemBr.DataAccess\RmemBr.DataAccess.csproj" />
     <ProjectReference Include="..\..\RmemBR.Data\RmemBR.Data.csproj" />
     <ProjectReference Include="..\..\RmemBR.Service\RmemBR.Service.csproj" />

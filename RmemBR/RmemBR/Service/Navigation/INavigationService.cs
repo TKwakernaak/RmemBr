@@ -12,6 +12,7 @@ namespace RmemBR.Core
     Task InitializeAsync();
     Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase;
     Task NavigateToAsync<TViewModel>(object parameter) where TViewModel : ViewModelBase;
+    Task NavigateToAsync(Type viewModelType, object parameter = null);
     Task RemoveLastFromBackStackAsync();
     Task RemoveBackStackAsync();
   }

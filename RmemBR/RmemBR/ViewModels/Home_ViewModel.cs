@@ -1,68 +1,75 @@
-﻿using RmemBR.Core.ViewModels.Base;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using RmemBr.Common.Extensions;
+using RmemBr.Models;
+using RmemBR.Core.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace RmemBR.Core.ViewModels
 {
   public class Home_ViewModel : ViewModelBase
   {
+    public ObservableCollection<ListViewGrouping<MemoryGroup>> AllModulesGrouped { get; }
 
-    private ConcurrentQueue<string> _tags;
 
-    private string _tag;
 
     public Home_ViewModel()
     {
-      _tags = new ConcurrentQueue<string>();
-    }
+      var newListGrouping = new List<ListViewGrouping<MemoryGroup>>();
 
-    public string Tags
-    {
-      get
+      var grouping = new ListViewGrouping<MemoryGroup>("Group 1", "Group2");
+
+      var item1 = new MemoryGroup()
       {
-        string x = "";
-        _tags.TryPeek(out x);
-        return x;
-      }
-      set
+        Name = "Books",
+        Description = "Add your favorite books",
+        ImageName = "todo.jpeg",       
+        
+      };
+      var item2 = new MemoryGroup()
       {
-        _tags.Enqueue(value);
-      }
-    }
-
-    public string Tag
-    {
-      get
+        Name = "Movies",
+        Description = "Add your favorite Movies",
+        ImageName = "todo.jpeg"
+      };
+      var item3 = new MemoryGroup
       {
-        return _tag;
-      }
-      set
-      {
-        _tag = value;
-        OnPropertyChanged("Tag");
-       }
+        Name = "Ideas",
+        Description = "Add your favorite ideas",
+        ImageName = "todo.jpeg"
+      };
+
+
+      grouping.Add(item1);
+      grouping.Add(item2);
+      grouping.Add(item3);
+
+      newListGrouping.Add(grouping);
+
+      AllModulesGrouped = newListGrouping.ToObservableCollection();
     }
 
-    public ICommand TagAddedCommand => new Command(TagAdded);
 
 
-    public void TagAdded()
-    {
-      _tags.Enqueue(_tag);
-      RaisePropertyChanged(() => Tags);
+
+
+    public ICommand ModuleTappedCommand => new Command<MemoryGroup>(OnMemoryGroupTapped);
+
+
+
+
+    private void OnMemoryGroupTapped(MemoryGroup selectedModule)
+
+    {   
+    //  NavigationService.NavigateToAsync(selectedModule.MainViewModelType, selectedModule.Config);
+
     }
 
-    public override async Task InitializeAsync(object navigationData)
-    {
-      IsBusy = true;
-
-      //initialize data here
-      IsBusy = false;
-    }
   }
 }
+  

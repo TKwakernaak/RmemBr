@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RmemBR.Core.Views.AddMemory_View"
+             xmlns:ViewModelBase="clr-namespace:RmemBR.Core.ViewModels.Base;assembly=RmemBR.Core"
+             ViewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             Title="Add Memory">
+  <ContentPage.Content>
+    <StackLayout>
+      <Label Text="Title of this memory"></Label>
+      <Entry Placeholder="placeholder here"></Entry>
+      <Label Text="text goes here"></Label>
+      <Editor AutoSize="TextChanges"></Editor>
+      <Label Text="Label goes here"></Label>
+      <Entry Placeholder="Tags go Here" ></Entry>
+      <Button Text="Save"></Button>
+      
+    </StackLayout>
+
+  </ContentPage.Content>
+</ContentPage>

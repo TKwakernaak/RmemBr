@@ -7,15 +7,13 @@ using System.Reflection;
 using System.Globalization;
 using RmemBR.Core.Service.Navigation;
 using RmemBR.Core.Service.Dialogs;
-using RmemBR.Service;
-using RmemBr.DataAccess;
+
 
 namespace RmemBR.Core.ViewModels.Base
 {
   public static class ViewModelLocator
   {
-
-    private static Autofac.IContainer _container;
+    private static IContainer _container;
 
     public static readonly BindableProperty AutoWireViewModelProperty =
         BindableProperty.CreateAttached("AutoWireViewModel", typeof(bool), typeof(ViewModelLocator), default(bool), propertyChanged: OnAutoWireViewModelChanged);
@@ -42,14 +40,9 @@ namespace RmemBR.Core.ViewModels.Base
 
       builder.RegisterType<Main_ViewModel>();
       builder.RegisterType<Home_ViewModel>();
-      builder.RegisterType<History_ViewModel>();
-      builder.RegisterType<TasksOverview_ViewModel>(); 
-
+      builder.RegisterType<TasksOverview_ViewModel>();    
       builder.RegisterType<NavigationService>().As<INavigationService>();
-      builder.RegisterType<DialogService>().As<IDialogService>();
-      builder.RegisterType<MemoryService>().As<IMemoryService>();
-      builder.RegisterType<MemoriesDbClient>().As<IMemoriesDbClient>();
-
+     // builder.RegisterType<DialogService>().As<IDialogService>();
 
      _container = builder.Build(); 
     }

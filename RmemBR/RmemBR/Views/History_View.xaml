@@ -21,7 +21,7 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <Button Text="add memory comes here" HorizontalOptions="End" VerticalOptions="End"></Button>
+      <ImageButton Source="{images:ImageResource  RmemBR.Core.Images.add_circle.png}" Command="{Binding AddNewMemoryCommand}" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" VerticalOptions="End" BackgroundColor="White" Aspect="AspectFill" Margin="10"/>    
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

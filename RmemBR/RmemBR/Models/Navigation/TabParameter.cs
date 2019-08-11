@@ -6,8 +6,9 @@ namespace RmemBR.Core.Models.Navigation
 {
   public enum TabParameter
   {
-    Home     = 1,
-    History  = 2,
-    Settings = 3
+    Home           = 1,
+    History        = 2,
+    Settings       = 3,
+    MemoryOverview = 4
   }
 }

@@ -44,6 +44,18 @@ namespace RmemBR.Core.Service.Navigation
       return InternalNavigateToAsync(typeof(TViewModel), parameter);
     }
 
+    public Task NavigateToAsync(Type viewModelType, object parameter = null)
+    {
+      if (viewModelType == null)
+        return null;
+
+      if (viewModelType.BaseType != typeof(ViewModelBase) && viewModelType.BaseType?.BaseType != typeof(ViewModelBase))
+        throw new ArgumentException($"navigate to {viewModelType} failed. Can only navigate to objects that inherit from {nameof(ViewModelBase)}");
+
+      return InternalNavigateToAsync(viewModelType, parameter);
+    }
+
+
     public Task RemoveBackStackAsync()
     {
       var mainPage = Application.Current.MainPage as CustomNavigation_View;

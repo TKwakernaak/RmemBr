@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RmemBR.Data
 {
-  public class MemoryDO
+  public class MemoryDTO
   {
     public string Id { get; set; }
     public string text { get; set; }

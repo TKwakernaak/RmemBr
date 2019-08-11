@@ -6,6 +6,16 @@
              xmlns:local="clr-namespace:RmemBR.Core.Behaviors"
              ViewModelBase:ViewModelLocator.AutoWireViewModel="true"
              Style="{StaticResource BaseContentPage}"  >
+  <ContentPage.Resources>
+
+    <ResourceDictionary>
+
+      <!--<converters:ToImageConverter x:Key="imageConvert" Assembly="Advisor.AdviScan.App.Core.Images"/>-->
+
+    </ResourceDictionary>
+
+  </ContentPage.Resources>
+
   <ContentPage.Content>
     <StackLayout>
       <Label Text="what do you have to remember"></Label>
