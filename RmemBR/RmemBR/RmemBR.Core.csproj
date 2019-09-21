@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,6 +8,15 @@
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\CustomViews\**" />
+    <Compile Remove="Views\Templates\**" />
+    <EmbeddedResource Remove="Views\CustomViews\**" />
+    <EmbeddedResource Remove="Views\Templates\**" />
+    <None Remove="Views\CustomViews\**" />
+    <None Remove="Views\Templates\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Images\add_circle.png" />
@@ -47,13 +56,13 @@
     <None Update="Views\Main_View.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
-    <None Update="Views\Templates\Main_View.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\AddMemory_View.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Controls\FloatingEntry.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomNavigation_View.xaml">
@@ -74,11 +83,6 @@
     <EmbeddedResource Update="Views\TasksOverview_View.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\CustomViews\" />
-    <Folder Include="Views\Templates\" />
   </ItemGroup>
 
   <ItemGroup>

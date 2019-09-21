@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RmemBR.Core.Views.Controls.FloatingEntry">
+  <ContentView.Content>
+    <StackLayout Padding="0" Spacing="2">
+      <Label x:Name="HiddenLabel"
+             IsVisible="False"
+             Margin="0,0,0,-18"
+             Style="{StaticResource FloatingEntryLabelStyle}" />
+      <Entry  x:Name="EntryField" Text="{Binding Text, Mode=TwoWay}"
+              Margin="0,0,0,0"/>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>
