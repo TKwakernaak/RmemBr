@@ -5,10 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.35" />
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RmemBr.Common\RmemBr.Common.csproj" />
     <ProjectReference Include="..\RmemBR.Data\RmemBR.Data.csproj" />
     <ProjectReference Include="..\RmemBr.Models\RmemBr.Models.csproj" />
   </ItemGroup>
